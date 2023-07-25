@@ -15,8 +15,18 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+left_column, rigth_column = st.columns(2)
 
-with st.echo(code_location='below'):
+left_column.button('Presioname...')
+
+with rigth_column:
+    chosen = st.radio(
+        'Shorting hat',
+        ("Op 1 ", "Op 2", "Op 3", "Op 4"))
+    st.write(f"La eleccion es {chosen}")
+
+
+"""with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
@@ -36,3 +46,4 @@ with st.echo(code_location='below'):
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
+"""
