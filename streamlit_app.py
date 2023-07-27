@@ -6,7 +6,7 @@ import streamlit as st
 import numpy as np
 
 
-left_column,cent_colum, rigth_column = st.columns(7, 3)
+left_column,cent_colum, rigth_column = st.columns([7, 3])
 
 with left_column:
     chart_data = pd.DataFrame(
