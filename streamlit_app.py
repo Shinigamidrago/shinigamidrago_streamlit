@@ -6,15 +6,14 @@ import streamlit as st
 import numpy as np
 
 
-left_column,cent_colum, rigth_column = st.columns(3)
+left_column,cent_colum, rigth_column = st.columns(7, 3)
 
 with left_column:
     chart_data = pd.DataFrame(
         np.random.randn(20, 3),
         columns=['a','b','c']    )
     st.line_chart(chart_data)
-    
-cent_colum= 0
+
     
 
 with rigth_column:
