@@ -4,10 +4,42 @@ import math
 import pandas as pd
 import streamlit as st
 import numpy as np
+from pathlib import Path
+from PIL import Image
+
+# -----PATH  & SETTING -----------
+
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+current_image = current_dir /"assets"/"photo.png"
+
+image_pic = Image.open(current_image)
+
+PAGE_TITLE = "Porfolio | Bruno Conti"
+PAGE_ICON = ":wave:"
+NAME = "Bruno Conti"
+DESCRIPCION = """
+Lic. en Sistemas, apasionado Data Driver 
+                 """
+EMAIL = "brunocontisimon@gmail.com"
+
+SOCIAL_MEDIA = {
+    "LinkedIn": "https://www.linkedin.com/in/bruno-conti-1b4a7417/",
+    "GitHub": "https://github.com/Shinigamidrago"
+}
+
+st.set_page_config(page_title=PAGE_TITLE, page_icon= PAGE_ICON)
 
 
+# -----Mi Seccion ---------------
+col1, col2 = st.columns(2, gap="small")
+with col1: 
+    st.image(image_pic, width=230)
 
-left_column, rigth_column = st.columns([7, 3])
+
+st.write("#")
+
+# -------
+left_column, rigth_column = st.columns([7, 3],gap='small' )
 
 with left_column:
     chart_data = pd.DataFrame(
@@ -30,12 +62,12 @@ c = st.checkbox(
 )
 
 if(c == True):
-    st.write( """   "with st.echo(code_location='below'):
-                    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-                    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+    st.code( """with st.echo(code_location='below'):
+              total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
+              num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
-                Point = namedtuple('Point', 'x y')
-                data = []
+              Point = namedtuple('Point', 'x y')
+              data = []
 
                 points_per_turn = total_points / num_turns
 
