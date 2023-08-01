@@ -9,13 +9,16 @@ from PIL import Image
 
 # -----PATH  & SETTING -----------
 
+
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 current_image = current_dir /"assets"/"photo.png"
+current_cv = current_dir /"assets"/"Currículum_Bruno.pdf"
 
 image_pic = Image.open(current_image)
+#cv_descarga = Path.open(current_cv)
 
 PAGE_TITLE = "Porfolio | Bruno Conti"
-PAGE_ICON = ":wave:"
+PAGE_ICON = ":computer:"
 NAME = "Bruno Conti"
 DESCRIPCION = """
 Lic. en Sistemas, apasionado Data Driver 
@@ -27,19 +30,40 @@ SOCIAL_MEDIA = {
     "GitHub": "https://github.com/Shinigamidrago"
 }
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon= PAGE_ICON)
+st.set_page_config(page_title=PAGE_TITLE, page_icon= PAGE_ICON, layout="wide")
+
+# -----Lectura de Archivos--------
+
+with open(current_cv, "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+
 
 
 # -----Mi Seccion ---------------
-col1, col2 = st.columns(2, gap="small")
+col1, col2 = st.columns(([3,7]), gap="small")
 with col1: 
     st.image(image_pic, width=230)
+
+with col2: 
+    st.write("#"
+             "#")
+    st.write(DESCRIPCION)
+    st.write(EMAIL)
+
+    st.write("#"
+             "#")
+    
+    st.download_button(
+                        label="CV-Descarga",
+                        data=PDFbyte,
+                        file_name= current_cv.name,
+                         mime="application/octet-stream" )
 
 
 st.write("#")
 
 # -------
-left_column, rigth_column = st.columns([7, 3],gap='small' )
+left_column, rigth_column = st.columns([5, 3],gap='small' )
 
 with left_column:
     chart_data = pd.DataFrame(
