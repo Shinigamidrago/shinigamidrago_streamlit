@@ -9,10 +9,7 @@ from PIL import Image
 from streamlit_option_menu import option_menu
 
 def mostrar():
-
-
         # -----PATH  & SETTING -----------
-
 
         current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
         current_image = current_dir /"assets"/"photo.png"
@@ -20,10 +17,6 @@ def mostrar():
         current_pages = current_dir/"pages"
 
         image_pic = Image.open(current_image)
-        #cv_descarga = Path.open(current_cv)
-
-        #PAGE_TITLE = "Porfolio | Bruno Conti"
-        #PAGE_ICON = ":computer:"
         NAME = "Bruno Conti"
         DESCRIPCION = """
         Lic. en Sistemas, apasionado Data Driver 
@@ -35,25 +28,6 @@ def mostrar():
             "GitHub": "https://github.com/Shinigamidrago"
         }
 
-        #st.set_page_config(page_title=PAGE_TITLE, page_icon= PAGE_ICON, layout="wide")
-
-
-        # -----MENU LATERAL--------------
-
-        #st.sidebar.selectbox("Indice", ["Inicio", "Deeplearning","MachineLearning"])
-        #st.select_slider(label="Secciones",)
-
-        """seleccted = option_menu(
-            menu_title= None,
-            options=["Home", "Deep"],
-            icons=["house", "book"],
-            menu_icon="cast",
-            default_index=0,
-            orientation="horizontal"
-        )
-
-        if seleccted == "Deep":
-            Deeplearning.mostrar()"""
 
         # -----Lectura de Archivos--------
 

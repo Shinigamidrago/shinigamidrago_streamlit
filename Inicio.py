@@ -19,12 +19,9 @@ st.set_page_config(page_title=PAGE_TITLE, page_icon= PAGE_ICON, layout="wide")
 
 
 # -----MENU LATERAL--------------
-
-st.write("""
-            <script>
-               windows.onload = function() { window.scrollTo(0 ,0);};
-            </script>
-                  """)
+esp1 , esp2 = st.columns([2,2])
+with esp1:
+    st.write("#")
 
 seleccted = option_menu(
     menu_title= None,
