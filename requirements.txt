@@ -1,4 +1,4 @@
+streamlit_option_menu
 altair
 pandas
 streamlit
-streamlit_option_menu
