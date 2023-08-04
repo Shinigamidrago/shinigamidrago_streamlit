@@ -20,7 +20,7 @@ st.set_page_config(page_title=PAGE_TITLE, page_icon= PAGE_ICON, layout="wide")
 
 # -----MENU LATERAL--------------
 
-
+st.write("#")
 
 seleccted = option_menu(
     menu_title= None,
